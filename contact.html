@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+    <head>
+         <meta name="viewport"content="with=device-width, initial-scale=1.0">
+            
+            
+            <title>
+                registeration
+            </title>
+    </head>
+
+
+<body>
+
+    <link rel="stylesheet" href="style.css?v=2">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <section class="Design">
+        <nav>
+        <div class="navbar">
+        <img src="hhhhhhhhhhh.png" class="logo">
+     
+            
+            <ul>
+                <li><a href="index.html"onclick="setActive(this)">Home</a></li>
+                <li><a href="registeration.html"onclick="setActive(this)">Registration</a></li>
+                <li><a href="schedule.html"onclick="setActive(this)">schedule</a></li>
+                <li><a href="speakers.html"onclick="setActive(this)">speakers</a></li>
+                <li><a href="contact.html"onclick="setActive(this)">contact</a></li>
+            </ul>
+        </div>
+        </nav>
+    </section>
+
+    <div class="contact-form">
+        <form id="contactForm">
+            <h3>GET IN TOUCH</h3>
+            <input type="text" id="name" placeholder="Your full name" required>
+            <input type="email" id="email" placeholder="Email Adress" required>
+            <input type="text" id="phone" placeholder="Phone number" required>
+            <textarea id="message" rows="5" placeholder="How can we help?"></textarea>
+            <button type="submit">Send your message</button>
+        </form>
+    </div>
+    
+    <script>
+                document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const message = document.getElementById('message').value;
+            
+            const confirmation = confirm("Form submitted! we will get back to you in 3 working days :)");
+            if (confirmation) {   /* this message informs the user that it was submitted and insure them we will get back to them asap*/
+                
+            
+                console.log("Form submitted:");
+                console.log("Name: ", name);
+                console.log("Email: ", email);
+                console.log("Phone: ", phone);
+                console.log("Message: ", message);
+            }
+        });
+
+    </script>
+
+
+
+
+    <div class="contact">
+    <h1>For further inquires and questions, contact us at:</h1>
+    <p>Email: CO1101@gmail.com<br>
+    Phone no: 0777123457<br></p>
+    </div>
+
+    <section class="footer">
+        <h5>About us</h5>
+        <h6>We are a group of leicester university students doing a conference for CO1101</h6>
+        <div class="icons">
+            <i class="fa fa-facebook-official"></i>
+            <i class="fa fa-instagram"></i>
+            <i class="fa fa-twitter"></i>
+        </div>
+        <h8>Made with <i class="fa fa-heart-o"></i>and hard effort by Noreen Alnageeb</h8>
+    </section>
+</body>
+</html>

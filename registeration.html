@@ -1,0 +1,165 @@
+<!doctype html>
+<html>
+    <head>
+         <meta name="viewport"content="with=device-width, initial-scale=1.0">
+            
+            
+            <title>
+                registeration
+            </title>
+    </head>
+
+
+<body>
+
+
+
+    <link rel="stylesheet" href="style.css?v=2">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <section class="Design">
+        <nav>
+        <div class="navbar">
+        <img src="hhhhhhhhhhh.png" class="logo">
+     
+            
+            <ul>
+                <li><a href="index.html"onclick="setActive(this)">Home</a></li>
+                <li><a href="registeration.html"onclick="setActive(this)">Registration</a></li>
+                <li><a href="schedule.html"onclick="setActive(this)">schedule</a></li>
+                <li><a href="speakers.html"onclick="setActive(this)">speakers</a></li>
+                <li><a href="contact.html"onclick="setActive(this)">contact</a></li>
+            </ul>
+        </div>
+        </nav>
+        
+        <div class="registeration">
+          <form id="registrationForm">
+              <h1>Registration Form</h1>
+              
+              <div class="form-content">
+                <label for="fullname">Full Name:</label>
+                <input type="text" id="fullname" placeholder="e.g Noreen Alnageeb" required><br> <!--"required"lets the user get notified if not filled-->
+              </div>
+              
+              <div class="form-content">
+                <label for="age">Age:</label>
+                <input type="age" id="age" placeholder="e.g 26" required><br>
+              </div>
+
+              <div class="form-content">
+                <label for="email">Email:</label>
+                <input type="email" id="email" placeholder="e.g Noreen@gmail.com" required><br>
+              </div>
+              
+              <div class="form-content">
+                <label for="phone">Phone Number:</label>
+                <input type="text" id="phone" placeholder="e.g 0776433825" required><br>
+              </div>
+
+              <div class="form-content">
+                <label for="country">The Country You Currently live in:</label>
+                <input type="text" id="country" placeholder="e.g United Kingdom" required><br>
+              </div>
+              
+              <div class="form-content">
+                <label for="city">City:</label>
+                <input type="text" id="city" placeholder="e.g Leicester" required><br>
+              </div>
+
+              <div class="form-content">
+                <label for="address">Street Address:</label>
+                <input type="text" id="address" placeholder="e.g 63 London Road" required><br>
+              </div>
+
+              <div class="form-content">
+                <label for="postcode">Postcode:</label>
+                <input type="text" id="postcode" placeholder="e.g LE2 7UL" required><br> 
+            </div>
+              <div class="form-content">
+              <textarea id="message" rows="2" placeholder="Dietary requirements we should know about"></textarea>
+              </div>
+              <input type="submit" value="Submit"> <!--lets the form be submitted-->
+              
+          </form>
+      </div>
+  
+      <div id="errorMessage" class="error-message"></div>
+      <div id="successMessage" class="success-message"></div>
+      
+      
+  </section>
+
+    <script>
+            
+                        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                const age = parseInt(document.getElementById('age').value);
+                const phone = document.getElementById('phone').value;
+                const country = document.getElementById('country').value;
+                const city = document.getElementById('city').value;
+                const fullname = document.getElementById('fullname').value;
+                const email = document.getElementById('email').value;
+                const address = document.getElementById('address').value;
+                const postcode = document.getElementById('postcode').value;
+                
+                if (age < 18) {
+                    showError("You are not applicable to apply for this conference, due to your age.");
+                    return;     /*won't let the user proceed if age is under 18*/
+                } else { 
+                    hideError();
+                }
+                
+
+                if (!isValidEmail(email)) {
+                    showError("Incorrect email format, please try again.");
+                    return;
+                } else {
+                    hideError();
+                }
+
+                showSuccess("Form submitted successfully!");
+                
+            });
+
+            function isValidEmail(email) {
+                const isValid = /\S+@\S+\.\S+/.test(email);
+                if (isValid) {
+                    hideError(); 
+                }
+                return isValid;
+            }
+
+            function showError(message) {
+                const errorMessage = document.getElementById('errorMessage');
+                errorMessage.textContent = message;
+                errorMessage.style.display = 'block'; 
+            }
+
+            function hideError() {
+                const errorMessage = document.getElementById('errorMessage');
+                errorMessage.style.display = 'none'; /*this hides the error message after correcting it*/
+            }
+
+            function showSuccess(message) {
+                const successMessage = document.getElementById('successMessage');
+                successMessage.textContent = message;
+                successMessage.style.display = 'block'; 
+            }
+           
+
+    </script>
+
+    <section class="footer">
+            <h5>About us</h5>
+            <h6>We are a group of leicester university students doing a conference for CO1101</h6>
+            <div class="icons">
+                <i class="fa fa-facebook-official"></i>
+                <i class="fa fa-instagram"></i>
+                <i class="fa fa-twitter"></i>
+            </div>
+            <h8>Made with <i class="fa fa-heart-o"></i>and hard effort by Noreen Alnageeb</h8>
+        </section>
+</body>
+</html>
